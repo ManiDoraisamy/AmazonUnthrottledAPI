@@ -74,9 +74,9 @@ client.itemSearch({
   keywords: 'Sapiens',
   searchIndex: 'Books'
 }).then(function(results){
-	console.log(JSON.stringify(results));
+  console.log(JSON.stringify(results));
 }).catch(function(err){
-	console.log(JSON.stringify(err));
+  console.log(JSON.stringify(err));
 });
 ```
 
