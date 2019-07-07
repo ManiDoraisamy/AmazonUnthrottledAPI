@@ -1,0 +1,24 @@
+{
+  "name": "amazon-unthrottled-api",
+  "version": "1.0.0",
+  "description": "Amazon Unthrottled API Client for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Amazon",
+    "Product",
+    "API",
+    "Affiliate",
+    "Associate"
+  ],
+  "author": "Mani Doraisamy",
+  "license": "ISC",
+  "dependencies": {
+    "amazon-product-api": "^0.4.4",
+    "es6-promise": "^4.2.8",
+    "request": "^2.88.0",
+    "xml2js": "^0.4.19"
+  }
+}
