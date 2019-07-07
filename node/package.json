@@ -1,6 +1,6 @@
 {
   "name": "amazon-unthrottled-api",
-  "version": "1.0.7",
+  "version": "1.0.10",
   "description": "Amazon Unthrottled API Client for Node.js",
   "main": "index.js",
   "scripts": {
@@ -22,5 +22,5 @@
   "bugs": {
     "url": "https://github.com/ManiDoraisamy/AmazonUnthrottledAPI/issues"
   },
-  "homepage": "https://github.com/ManiDoraisamy/AmazonUnthrottledAPI"
+  "homepage": "https://github.com/ManiDoraisamy/AmazonUnthrottledAPI/tree/master/node"
 }

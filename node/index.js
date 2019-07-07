@@ -13,12 +13,21 @@ var runQuery = function (credentials, method) {
     delete query.request;
     var istrim = query.trim;
     delete query.trim;
-    if(method=='ItemSearch' || method=='ItemLookup' || method=='SimilarityLookup')
+    if(method=='ItemSearch' || method=='SimilarityLookup')
     {
       query.ResponseGroup = 'Accessories,AlternateVersions,BrowseNodes,EditorialReview,'+
       'Images,ItemAttributes,ItemIds,Large,Medium,OfferFull,OfferListings,Offers,OfferSummary,'+
       'PromotionSummary,Reviews,SalesRank,SearchBins,Similarities,Small,Tracks,'+
       'Variations,VariationMatrix,VariationOffers,VariationSummary';
+    }
+    else if(method=='ItemLookup')
+    {
+      var grps = ['ItemIds','Small','Medium','Large','Offers','OfferFull','OfferSummary','OfferListings',
+      'PromotionSummary','Variations','VariationImages','VariationSummary',
+      'VariationMatrix','VariationOffers','ItemAttributes','Tracks',
+      'Accessories','EditorialReview','SalesRank','BrowseNodes','Images','Similarities','Reviews',
+      'SearchInside','PromotionalTag','AlternateVersions','Collections','ShippingCharges'];
+      query.ResponseGroup = grps.join(',');
     }
     else if(method=='BrowseNodeLookup')
     {
