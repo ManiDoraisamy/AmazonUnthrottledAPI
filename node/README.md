@@ -1,1 +1,1 @@
-# Amazon Unthrottled API - Node Client
+# Amazon Unthrottled API for Node.js
