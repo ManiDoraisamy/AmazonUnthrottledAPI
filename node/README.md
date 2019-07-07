@@ -71,8 +71,8 @@ You can add any [available params](http://docs.aws.amazon.com/AWSECommerceServic
 Using promises:
 ```javascript
 client.itemSearch({
-	keywords: 'Sapiens',
-	searchIndex: 'Books'
+  keywords: 'Sapiens',
+  searchIndex: 'Books'
 }).then(function(results){
 	console.log(JSON.stringify(results));
 }).catch(function(err){
