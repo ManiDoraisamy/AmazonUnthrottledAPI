@@ -4,7 +4,7 @@
 
 Node.js client for [Amazon Product Advertising API](https://affiliate-program.amazon.com/gp/advertising/api/detail/main.html). If you are frequently running into the RequestThrottled error ```You are submitting requests too quickly. Please retry your requests at a slower rate```, this gives you unthrottled access to Amazon product data using a [shared cache](https://www.commercedna.com).
 
-This is a drop-in replacement for [amazon-product-api](https://www.npmjs.com/package/amazon-product-api) Node.js client. If you are already using it, replace ```require('amazon-product-api')``` with ```require('amazon-unthrottled-api')``` and you should be good to go.
+This is meant to be a drop-in replacement for [amazon-product-api](https://www.npmjs.com/package/amazon-product-api) Node.js client. If you are already using it, replace ```require('amazon-product-api')``` with ```require('amazon-unthrottled-api')``` and you should be good to go.
 
 
 [![NPM](https://nodei.co/npm/amazon-unthrottled-api.png?downloads=true)](https://nodei.co/npm/amazon-unthrottled-api/)
