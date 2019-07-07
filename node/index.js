@@ -11,15 +11,46 @@ var runQuery = function (credentials, method) {
   return function (query, cb) {
     var req = query.request || request;
     delete query.request;
-    if(method='ItemSearch' || method=='ItemLookup')
+    var istrim = query.trim;
+    delete query.trim;
+    if(method=='ItemSearch' || method=='ItemLookup' || method=='SimilarityLookup')
     {
-      req.query.ResponseGroup = 'Accessories,AlternateVersions,BrowseNodes,EditorialReview,'+
+      query.ResponseGroup = 'Accessories,AlternateVersions,BrowseNodes,EditorialReview,'+
       'Images,ItemAttributes,ItemIds,Large,Medium,OfferFull,OfferListings,Offers,OfferSummary,'+
       'PromotionSummary,Reviews,SalesRank,SearchBins,Similarities,Small,Tracks,'+
       'Variations,VariationMatrix,VariationOffers,VariationSummary';
     }
+    else if(method=='BrowseNodeLookup')
+    {
+      query.ResponseGroup = 'BrowseNodeInfo,MostGifted,NewReleases,MostWishedFor,TopSellers';
+    }
     var url = generateQueryString(query, method, credentials);
     url = url.replace('webservices.amazon.com','com.commercedna.com');
+    console.debug('Fetching '+method+' with '+url);
+
+    var trimArray = function(jso)
+    {
+      if(!istrim) return jso;
+      if(Array.isArray(jso))
+      {
+        if(jso.length==1)
+          return trimArray(jso[0]);
+        else
+        {
+          for(var i=0; i<jso.length; i++)
+            jso[i] = trimArray(jso[i]);
+          return jso;
+        }
+      }
+      else if(jso===Object(jso))
+      {
+        for(var nm in jso)
+          jso[nm] = trimArray(jso[nm]);
+        return jso;
+      }
+      else
+        return jso;
+    }
 
     var p = new Promise(function(resolve, reject) {
       var success = function(results) {
@@ -49,7 +80,7 @@ var runQuery = function (credentials, method) {
             if (err) {
               failure(err);
             } else {
-              failure(resp[method + 'ErrorResponse']);
+              failure(trimArray(resp[method + 'ErrorResponse']));
             }
           });
         } else {
@@ -64,8 +95,8 @@ var runQuery = function (credentials, method) {
                   failure(respObj.Items[0].Request[0].Errors);
                 } else if (respObj.Items[0].Item) {
                   success(
-                    respObj.Items[0].Item,
-                    respObj.Items
+                    trimArray(respObj.Items[0].Item),
+                    trimArray(respObj.Items)
                   );
                 }
               } else if (respObj.BrowseNodes && respObj.BrowseNodes.length > 0) {
@@ -74,8 +105,8 @@ var runQuery = function (credentials, method) {
                   failure(respObj.BrowseNodes[0].Request[0].Errors);
                 } else if (respObj.BrowseNodes[0].BrowseNode) {
                   success(
-                    respObj.BrowseNodes[0].BrowseNode,
-                    respObj.BrowseNodes
+                    trimArray(respObj.BrowseNodes[0].BrowseNode),
+                    trimArray(respObj.BrowseNodes)
                   );
                 }
               }
