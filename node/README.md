@@ -44,8 +44,8 @@ Now you are ready to use the API!
 Using promises:
 ```javascript
 client.itemSearch({
-  keywords: 'Quentin Tarantino',
-  searchIndex: 'DVD'
+  keywords: 'Sapiens',
+  searchIndex: 'Books'
 }).then(function(results){
   console.log(results);
 }).catch(function(err){
@@ -74,8 +74,7 @@ You can add these [params](http://docs.aws.amazon.com/AWSECommerceService/latest
 Using promises:
 ```javascript
 client.itemLookup({
-  idType: 'UPC',
-  itemId: '884392579524'
+  itemId: '0062316117'
 }).then(function(results) {
   console.log(JSON.stringify(results));
 }).catch(function(err) {
@@ -105,8 +104,7 @@ You can add any [available params](http://docs.aws.amazon.com/AWSECommerceServic
 Using promises:
 ```javascript
 client.browseNodeLookup({
-  browseNodeId: '549726',
-  responseGroup: 'NewReleases'
+  browseNodeId: '1000'
 }).then(function(results) {
   console.log(results);
 }).catch(function(err) {
@@ -121,5 +119,4 @@ You can add any [available params](http://docs.aws.amazon.com/AWSECommerceServic
 
 - [browseNodeId:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/BrowseNodeLookup.html) A positive integer assigned by Amazon that uniquely identifies a product category.
 
-- [responseGroup:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) You can use multiple values by separating them with comma (e.g responseGroup: 'MostGifted,NewReleases,MostWishedFor,TopSellers'). Defaults to 'BrowseNodeInfo'.
 
