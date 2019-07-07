@@ -2,7 +2,7 @@
 
 ![alt text](http://i.imgur.com/MwfPRfB.gif "Amazon Product Advertising API")
 
-Node.js client for [Amazon Product Advertising API](https://affiliate-program.amazon.com/gp/advertising/api/detail/main.html). This is a drop-in replacement for [amazon-product-api](https://www.npmjs.com/package/amazon-product-api) Node.js client. If you are already using it, replace ```javascript require('amazon-product-api') ``` with require('amazon-unthrottled-api') and you should be good to go.
+Node.js client for [Amazon Product Advertising API](https://affiliate-program.amazon.com/gp/advertising/api/detail/main.html). This is a drop-in replacement for [amazon-product-api](https://www.npmjs.com/package/amazon-product-api) Node.js client. If you are already using it, replace ```require('amazon-product-api')``` with ```require('amazon-unthrottled-api')``` and you should be good to go.
 
 
 [![NPM](https://nodei.co/npm/amazon-unthrottled-api.png?downloads=true)](https://nodei.co/npm/amazon-unthrottled-api/)
