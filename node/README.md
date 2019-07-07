@@ -35,6 +35,33 @@ var client = amazon.createClient({
 Now you are ready to use the API!
 
 
+### BrowseNodeLookup
+
+> Given a browse node ID, BrowseNodeLookup returns the specified browse node’s name, children, and ancestors. The names and browse node IDs of the children and ancestor browse nodes are also returned. BrowseNodeLookup enables you to traverse the browse node hierarchy to find a browse node.
+
+[📖 Documentation](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/BrowseNodeLookup.html)
+
+Using promises:
+```javascript
+client.browseNodeLookup({
+  browseNodeId: '1000'
+}).then(function(results) {
+  console.log(JSON.stringify(results));
+}).catch(function(err) {
+  console.log(JSON.stringify(err));
+});
+```
+
+
+#### Query params:
+
+You can add any [available params](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/BrowseNodeLookup.html) for the *BrowseNodeLookup* method.
+
+- [browseNodeId:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/BrowseNodeLookup.html) A positive integer assigned by Amazon that uniquely identifies a product category.
+
+
+
+
 ### ItemSearch
 
 > The ItemSearch operation searches for items on Amazon. The Product Advertising API returns up to ten items per search results page.
@@ -44,12 +71,12 @@ Now you are ready to use the API!
 Using promises:
 ```javascript
 client.itemSearch({
-  keywords: 'Sapiens',
-  searchIndex: 'Books'
+	keywords: 'Sapiens',
+	searchIndex: 'Books'
 }).then(function(results){
-  console.log(results);
+	console.log(JSON.stringify(results));
 }).catch(function(err){
-  console.log(err);
+	console.log(JSON.stringify(err));
 });
 ```
 
@@ -78,7 +105,7 @@ client.itemLookup({
 }).then(function(results) {
   console.log(JSON.stringify(results));
 }).catch(function(err) {
-  console.log(err);
+  console.log(JSON.stringify(err));
 });
 ```
 
@@ -92,31 +119,5 @@ You can add any [available params](http://docs.aws.amazon.com/AWSECommerceServic
 - [itemId:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) One or more (up to ten) positive integers that uniquely identify an item.
 
 - [searchIndex:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/USSearchIndexParamForItemsearch.html) Defaults to 'All'.
-
-
-
-### BrowseNodeLookup
-
-> Given a browse node ID, BrowseNodeLookup returns the specified browse node’s name, children, and ancestors. The names and browse node IDs of the children and ancestor browse nodes are also returned. BrowseNodeLookup enables you to traverse the browse node hierarchy to find a browse node.
-
-[📖 Documentation](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/BrowseNodeLookup.html)
-
-Using promises:
-```javascript
-client.browseNodeLookup({
-  browseNodeId: '1000'
-}).then(function(results) {
-  console.log(results);
-}).catch(function(err) {
-  console.log(err);
-});
-```
-
-
-#### Query params:
-
-You can add any [available params](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/BrowseNodeLookup.html) for the *BrowseNodeLookup* method.
-
-- [browseNodeId:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/BrowseNodeLookup.html) A positive integer assigned by Amazon that uniquely identifies a product category.
 
 
