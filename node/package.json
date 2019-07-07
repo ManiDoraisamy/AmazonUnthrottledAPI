@@ -14,5 +14,13 @@
     "es6-promise": "^4.2.8",
     "request": "^2.88.0",
     "xml2js": "^0.4.19"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ManiDoraisamy/AmazonUnthrottledAPI.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ManiDoraisamy/AmazonUnthrottledAPI/issues"
+  },
+  "homepage": "https://github.com/ManiDoraisamy/AmazonUnthrottledAPI"
 }
